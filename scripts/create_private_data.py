@@ -16,7 +16,7 @@ from typing import List, Optional, Dict
 import requests
 
 # --- 設定 ---
-DEFAULT_GEMINI_API_KEY = "AIzaSyBFIEkSh9OtRK4g_xomBQPYj-NBaJaC8Vk"
+DEFAULT_GEMINI_API_KEY = "xxxxxxxxxxxxxxxxx"
 GEMINI_MODEL = "gemini-2.5-flash"
 GEMINI_API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent"
 
