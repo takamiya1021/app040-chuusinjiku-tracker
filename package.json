@@ -1,26 +1,39 @@
 {
-  "name": "app040-chuusinjiku-tracker-temp",
+  "name": "chuusinjiku-tracker",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:private": "cp data/articles-private.json public/articles.json && next build",
+    "build:public": "cp data/articles-public.json public/articles.json && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
+    "framer-motion": "^12.23.24",
+    "next": "14.2.31",
+    "next-pwa": "^5.6.0",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.2.31"
+    "zustand": "^5.0.8"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.31",
+    "jest": "^30.2.0",
+    "jest-environment-jsdom": "^30.2.0",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.31"
+    "typescript": "^5"
   }
 }
