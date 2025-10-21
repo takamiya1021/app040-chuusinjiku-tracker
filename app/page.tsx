@@ -29,7 +29,7 @@ export default function Home() {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await fetch('/articles.json');
+        const response = await fetch('/articles-app.json');
         if (response.ok) {
           const data = await response.json();
           loadArticles(data);

@@ -43,3 +43,8 @@ next-env.d.ts
 # 一時的な作業ファイル
 public/articles-visible.json
 public/batch-*.json
+
+# Python
+venv/
+__pycache__/
+*.pyc
