@@ -26,6 +26,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
+.env
 .env*.local
 
 # vercel
@@ -38,3 +39,7 @@ next-env.d.ts
 # data files (private data)
 /data/*.json
 !/data/.gitkeep
+
+# 一時的な作業ファイル
+public/articles-visible.json
+public/batch-*.json

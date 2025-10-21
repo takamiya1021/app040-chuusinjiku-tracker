@@ -14,9 +14,13 @@ from datetime import datetime
 from typing import List, Optional, Dict
 
 import requests
+from dotenv import load_dotenv
+
+# .envファイルを読み込み
+load_dotenv()
 
 # --- 設定 ---
-DEFAULT_GEMINI_API_KEY = "AIzaSyBFIEkSh9OtRK4g_xomBQPYj-NBaJaC8Vk"
+DEFAULT_GEMINI_API_KEY = ""  # 環境変数 GEMINI_API_KEY を使用してください
 GEMINI_MODEL = "gemini-2.5-flash"
 GEMINI_API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent"
 
