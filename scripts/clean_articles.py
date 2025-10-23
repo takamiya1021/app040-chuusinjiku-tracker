@@ -107,8 +107,8 @@ def clean_greeting_lines(content: str) -> str:
 
 def main():
     # ファイルパス
-    input_file = Path("data/input.json")
-    output_file = Path("data/short_cleaned.json")
+    input_file = Path("public/articles-app.json")
+    output_file = Path("public/articles-app.json")
 
     # JSONファイル読み込み
     print(f"📖 読み込み中: {input_file}")
