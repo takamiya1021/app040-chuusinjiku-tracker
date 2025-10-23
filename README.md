@@ -1,16 +1,39 @@
 # 中心軸トラッカー
 
-メンタルを整える習慣化アプリ
+> メンタルを整える記事閲覧アプリ
 
-## 概要
+心に響く文章を毎日読むことで、メンタルを整え、人生のレベルを上げることを支援するPWAアプリです。
 
-心に響く文章を毎日1つずつ読むことで、メンタルを整え、人生のレベルを上げることを支援するアプリです。
+## ✨ 特徴
 
-## セットアップ
+- 📱 **PWA対応** - スマホでもPCでも快適に閲覧可能
+- 🎯 **カテゴリーフィルタリング** - 目的に合わせて記事を絞り込み
+- ⚡ **高速表示** - Next.js 14の最適化による快適なブラウジング
+- 🎨 **レスポンシブデザイン** - あらゆるデバイスに対応
 
-### 依存パッケージのインストール
+## 🛠️ 技術スタック
+
+- [Next.js 14](https://nextjs.org/) - React フレームワーク（App Router）
+- [React 18](https://react.dev/) - UIライブラリ
+- [TypeScript](https://www.typescriptlang.org/) - 型安全な開発
+- [Tailwind CSS](https://tailwindcss.com/) - ユーティリティファーストCSS
+- [next-pwa](https://github.com/shadowwalker/next-pwa) - PWA対応
+
+## 🚀 セットアップ
+
+### 必要な環境
+
+- Node.js 18.x 以上
+- npm または yarn
+
+### インストール
 
 ```bash
+# リポジトリをクローン
+git clone https://github.com/takamiya1021/app040-chuusinjiku-tracker.git
+cd app040-chuusinjiku-tracker
+
+# 依存パッケージをインストール
 npm install
 ```
 
@@ -22,77 +45,55 @@ npm run dev
 
 ブラウザで [http://localhost:3000](http://localhost:3000) を開いてください。
 
-## ビルド
-
-### プライベート版（ローカル用）
-
-```bash
-npm run build:private
-```
-
-### パブリック版（公開用）
-
-```bash
-npm run build:public
-```
-
-### デフォルトビルド（パブリック版）
+### プロダクションビルド
 
 ```bash
 npm run build
+npm start
 ```
 
-## テスト
-
-### テスト実行
-
-```bash
-npm test
-```
-
-### ウォッチモード
-
-```bash
-npm run test:watch
-```
-
-### カバレッジレポート
-
-```bash
-npm run test:coverage
-```
-
-## 技術スタック
-
-- **フレームワーク**: Next.js 14 (App Router)
-- **UI**: React 18 + TypeScript
-- **スタイリング**: Tailwind CSS
-- **アニメーション**: Framer Motion
-- **状態管理**: Zustand
-- **テスト**: Jest + React Testing Library
-
-## プロジェクト構造
+## 📁 プロジェクト構造
 
 ```
 app040-chuusinjiku-tracker/
 ├── app/                # Next.js App Router
 ├── components/         # 共通コンポーネント
 ├── lib/                # ユーティリティ関数
-├── store/              # 状態管理（Zustand）
+├── store/              # 状態管理
 ├── types/              # TypeScript型定義
-├── data/               # データファイル（Git管理外）
-├── public/             # 静的ファイル
+├── public/             # 静的ファイル・記事データ
+│   ├── articles-app.json  # アプリが読み込む記事データ
+│   └── short.json         # 要約版記事データ
+├── scripts/            # データ処理スクリプト
 └── doc/                # ドキュメント
 ```
 
-## ドキュメント
+## 📊 データ管理
+
+記事データは2つのバージョンで管理されています：
+
+- **全文版** (`articles.json`) - 完全な記事データ（1,158件、6.4MB）
+- **要約版** (`short.json`) - 要約された記事データ（899件、1.5MB）
+
+アプリは `articles-app.json` を読み込むため、使用するバージョンを切り替えられます。
+
+詳細は [doc/data.md](doc/data.md) を参照してください。
+
+## 📝 主なコマンド
+
+| コマンド | 説明 |
+|---------|------|
+| `npm run dev` | 開発サーバー起動 |
+| `npm run build` | プロダクションビルド |
+| `npm start` | プロダクションサーバー起動 |
+| `npm run lint` | ESLint実行 |
+
+## 📄 ライセンス
+
+MIT License
+
+## 🔗 関連リンク
 
 - [要件定義書](doc/requirements_v1.0.md)
 - [技術設計書](doc/technical_design_v1.0.md)
-- [実装計画書](doc/implementation_plan_v1.0.md)
-- [Gmail収集方法提案書](doc/gmail_collection_proposal.md)
-- [2バージョン対応要約](doc/2version_summary.md)
-
-## ライセンス
-
-Private
+- [データ管理ドキュメント](doc/data.md)
