@@ -7,6 +7,7 @@
 
 import React, { useEffect, useMemo } from 'react';
 import { useStore } from '@/store/useStore';
+import { useArticles } from '@/hooks/useArticles';
 import { addArticleNumbers } from '@/lib/articles';
 import ArticleCard from '@/components/ArticleCard';
 import PageTransition from '@/components/PageTransition';
@@ -22,27 +23,11 @@ export default function Home() {
     isFavorite
   } = useStore();
 
+  // 記事データ読み込み（共通hooks使用）
+  useArticles();
+
   // 記事に番号を付与
   const articlesWithNumbers = useMemo(() => addArticleNumbers(articles), [articles]);
-
-  // 初回読み込み時に記事データを取得
-  useEffect(() => {
-    const fetchArticles = async () => {
-      try {
-        const response = await fetch('/articles-app.json');
-        if (response.ok) {
-          const data = await response.json();
-          loadArticles(data);
-        }
-      } catch (error) {
-        console.error('Failed to load articles:', error);
-      }
-    };
-
-    if (articles.length === 0) {
-      fetchArticles();
-    }
-  }, [articles.length, loadArticles]);
 
   // 記事データ読み込み後、最初の記事を表示
   useEffect(() => {

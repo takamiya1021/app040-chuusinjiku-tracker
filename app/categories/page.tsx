@@ -7,6 +7,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useStore } from '@/store/useStore';
+import { useArticles } from '@/hooks/useArticles';
 import { getAllCategories, addArticleNumbers, sortArticlesInCategory } from '@/lib/articles';
 import ArticleCard from '@/components/ArticleCard';
 import CategoryFilter from '@/components/CategoryFilter';
@@ -17,12 +18,14 @@ export default function Categories() {
     articles,
     categoryFilter,
     favorites,
-    loadArticles,
     getFilteredArticles,
     setCategoryFilter,
     toggleFavorite,
     isFavorite
   } = useStore();
+
+  // 記事データ読み込み（共通hooks使用）
+  useArticles();
 
   // 展開中の記事IDを管理
   const [expandedArticleId, setExpandedArticleId] = useState<string | null>(null);
@@ -42,25 +45,6 @@ export default function Categories() {
 
   // ソート適用（初回表示時のお気に入り状態を基準に）
   const sortedArticles = sortArticlesInCategory(filteredWithNumbers, initialFavoriteIds);
-
-  // 初回読み込み時に記事データを取得
-  useEffect(() => {
-    const fetchArticles = async () => {
-      try {
-        const response = await fetch('/articles.json');
-        if (response.ok) {
-          const data = await response.json();
-          loadArticles(data);
-        }
-      } catch (error) {
-        console.error('Failed to load articles:', error);
-      }
-    };
-
-    if (articles.length === 0) {
-      fetchArticles();
-    }
-  }, [articles.length, loadArticles]);
 
   // カテゴリー一覧を取得
   const categories = getAllCategories(articles);
