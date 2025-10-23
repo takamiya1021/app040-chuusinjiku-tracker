@@ -16,7 +16,6 @@ export default function Home() {
   const {
     articles,
     currentArticle,
-    loadArticles,
     getRandomArticle,
     setCurrentArticle,
     toggleFavorite,
